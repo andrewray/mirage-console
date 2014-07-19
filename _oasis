@@ -1,7 +1,7 @@
 OASISFormat: 0.3
 Name:        mirage-console
 Version:     1.1.0
-Synopsis:    Console implementation for both Xen and Unix
+Synopsis:    Console implementation for both Xen, Unix and kFreeBSD
 Authors:     Anil Madhavapeddy, David Scott
 License:     ISC
 Plugins:     META (0.3)
@@ -17,6 +17,10 @@ Flag xen
 
 Flag miragexen
   Description:        true to build Xen kernelspace console
+  Default:            false
+
+Flag kfreebsd
+  Description:        true to build kFreeBSD library
   Default:            false
 
 Library mirage_console
@@ -50,6 +54,14 @@ Library mirage_console_unix
   Findlibname:        mirage-console-unix
   Modules:            Console
   BuildDepends:       lwt, lwt.unix, mirage-types, mirage-console
+
+Library mirage_console_kfreebsd
+  Build$:             flag(kfreebsd)
+  CompiledObject:     best
+  Path:               kfreebsd
+  Findlibname:        mirage-console-kfreebsd
+  Modules:            Console
+  BuildDepends:       lwt, mirage-types, mirage-console
 
 Executable mirage_console_cli
   Build$:             flag(xen) && flag(unix)

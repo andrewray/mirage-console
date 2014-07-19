@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 268c8a359ad8f984085a53494c67c4c9)
+# DO NOT EDIT (digest: 585bdce430b3de6f5702752619575be0)
 # Ignore VCS directories, you can use the same kind of rule outside
 # OASIS_START/STOP if you want to exclude directories that contains
 # useless stuff for the build process
@@ -49,6 +49,13 @@
 <unix/*.ml{,i}>: pkg_mirage-types.lwt
 <unix/*.ml{,i}>: pkg_xenstore
 <unix/*.ml{,i}>: use_mirage_console
+# Library mirage_console_kfreebsd
+"kfreebsd/mirage_console_kfreebsd.cmxs": use_mirage_console_kfreebsd
+<kfreebsd/*.ml{,i}>: pkg_lwt
+<kfreebsd/*.ml{,i}>: pkg_mirage-types
+<kfreebsd/*.ml{,i}>: pkg_mirage-types.lwt
+<kfreebsd/*.ml{,i}>: pkg_xenstore
+<kfreebsd/*.ml{,i}>: use_mirage_console
 # Executable mirage_console_cli
 <cli/main.{native,byte}>: pkg_cmdliner
 <cli/main.{native,byte}>: pkg_io-page

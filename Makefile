@@ -21,11 +21,15 @@ build: setup.data setup.bin
 
 # Legacy build target:
 xen-build: setup.bin
-	./setup.bin -configure $(ENABLE_MIRAGE_XEN) $(ENABLE_XEN) --disable-unix
+	./setup.bin -configure $(ENABLE_MIRAGE_XEN) $(ENABLE_XEN) --disable-kfreebsd --disable-unix
 	./setup.bin -build -j $(J)
 
 unix-build: setup.bin
-	./setup.bin -configure --disable-miragexen --disable-xen --enable-unix
+	./setup.bin -configure --disable-miragexen --disable-xen --disable-kfreebsd --enable-unix
+	./setup.bin -build -j $(J)
+
+kfreebsd-build: setup.bin
+	./setup.bin -configure --disable-miragexen --disable-xen --disable-unix --enable-kfreebsd 
 	./setup.bin -build -j $(J)
 
 doc: setup.data setup.bin
@@ -36,6 +40,7 @@ install: setup.bin
 
 xen-install: install
 unix-install: install
+kfreebsd-install: install
 
 uninstall:
 	@./setup.bin -uninstall

@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 1945b23540589165e6dcb3963918777e)
+# DO NOT EDIT (digest: 06147b49cdcb86b3467f5ca2549f634f)
 version = "1.1.0"
-description = "Console implementation for both Xen and Unix"
+description = "Console implementation for both Xen, Unix and kFreeBSD"
 requires = "lwt xenstore mirage-types mirage-types.lwt"
 archive(byte) = "mirage_console.cma"
 archive(byte, plugin) = "mirage_console.cma"
@@ -10,7 +10,7 @@ archive(native, plugin) = "mirage_console.cmxs"
 exists_if = "mirage_console.cma"
 package "backend" (
  version = "1.1.0"
- description = "Console implementation for both Xen and Unix"
+ description = "Console implementation for both Xen, Unix and kFreeBSD"
  requires =
  "lwt xenstore mirage-console xen-gnt xen-evtchn mirage-types mirage-types.lwt shared-memory-ring shared-memory-ring.console"
  archive(byte) = "mirage_console_backend.cma"

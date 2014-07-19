@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 4d57515ae46966fb4da4153fee6be393)
+# DO NOT EDIT (digest: 25e8a4eddbd257e4b7bc4c8035bfdbe4)
 version = "1.1.0"
-description = "Console implementation for both Xen and Unix"
+description = "Console implementation for both Xen, Unix and kFreeBSD"
 requires = "lwt lwt.unix mirage-types mirage-console"
 archive(byte) = "mirage_console_unix.cma"
 archive(byte, plugin) = "mirage_console_unix.cma"
